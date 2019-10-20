@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class='container'>
+	<h1>{{user_id}}'s Latest Tweets</h1>
+	<h2>Enter Tweet ID to Delete that Tweet:</h2>
+	<form method='POST'>
+		{% csrf_token %}
+		{{form.as_p}}
+	<input type='submit' value='Delete' />
+	</form>
+	<h4>{{delete_error}}</h4>
+	<br>
+	{% for tweet in user_tweets %}
+	<h2>Tweet #{{forloop.counter}} ID: {{tweet.id}}</h2>
+	<h2>"{{tweet.text}}"</h2>
+	<h2> created at {{tweet.created_at}}</h2>
+	<br>
+	{% endfor %}
+</div>
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>TEST</h1>
+<p>This is a TEST</p>
+<ul>
+{% for list_item in test_list %}
+	<li>{{forloop.counter}} - {{list_item}}</li>
+{% endfor %}
+</ul>
+{% endblock %}

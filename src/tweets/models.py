@@ -1,3 +1,8 @@
+'''
+Models for tweet app
+
+Author: Vignesh Kumar T
+'''
 from django.db import models
 
 # Create your models here.

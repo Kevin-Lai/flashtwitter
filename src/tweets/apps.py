@@ -1,3 +1,8 @@
+'''
+App.py
+
+Author: Pooja Patil
+'''
 from django.apps import AppConfig
 
 

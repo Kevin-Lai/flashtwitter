@@ -1,3 +1,9 @@
+'''
+This views.py contains the logic for create form view and tweet view
+
+Author: Team Flash
+'''
+
 from django.shortcuts import render
 
 from .forms import CreateTweetForm, DeleteTweetForm, UserForm
@@ -5,15 +11,16 @@ from .models import CreateTweet, DeleteTweet, User
 
 import twitter
 
+#Author: Kevin-Lai
 # Put in your own Twitter Username and Twitter API keys to authenticate
-twitter_user_id = "your_twitter_username"
-api = twitter.Api(consumer_key='your_consumer_key',
-                  consumer_secret='your_consumer_secret_key',
-                  access_token_key='your_access_key',
-                  access_token_secret='your_access_secret_key')
+twitter_user_id = "VignneshKumarT"
+api = twitter.Api(consumer_key='consumer key',
+                  consumer_secret='consumer secret',
+                  access_token_key='access token key',
+                  access_token_secret='access token secret')
 
 # Create your views here.
-
+#Author: Pooja Patil
 def create_tweet_form_view(request):
 	form = CreateTweetForm(request.POST or None)
 	text = ''
@@ -28,7 +35,7 @@ def create_tweet_form_view(request):
 	}
 	return render(request, "tweets/create_tweet.html", context)
 
-
+#Author: Kevin Lai
 def tweet_view(request):
 	user_id = twitter_user_id
 	user_tweets = api.GetUserTimeline(screen_name=twitter_user_id, exclude_replies=True, include_rts=False)
@@ -37,7 +44,7 @@ def tweet_view(request):
 	tweet_id = ''
 	delete_error = ''
 	if form.is_valid():
-		tweet_id = form.cleaned_data['tweet_id']		
+		tweet_id = form.cleaned_data['tweet_id']
 		# Delete a Tweet by typing in its ID
 		try:
 			api.DestroyStatus(tweet_id)

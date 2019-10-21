@@ -1,3 +1,8 @@
+'''
+Form page for the UI page
+
+Author: Shivaranjani
+'''
 from django import forms
 
 from .models import CreateTweet, DeleteTweet, User

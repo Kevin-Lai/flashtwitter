@@ -8,16 +8,19 @@ from django.shortcuts import render
 
 from .forms import CreateTweetForm, DeleteTweetForm, UserForm
 from .models import CreateTweet, DeleteTweet, User
-
+import os
 import twitter
+from dotenv import load_dotenv
+
+load_dotenv()
 
 #Author: Kevin-Lai
 # Put in your own Twitter Username and Twitter API keys to authenticate
-twitter_user_id = "VignneshKumarT"
-api = twitter.Api(consumer_key='consumer key',
-                  consumer_secret='consumer secret',
-                  access_token_key='access token key',
-                  access_token_secret='access token secret')
+twitter_user_id = os.getenv('TWITTER_ID')
+api = twitter.Api(consumer_key=os.getenv('CUST_KEY'),
+                  consumer_secret=os.getenv('CUST_SEC'),
+                  access_token_key=os.getenv('OAUTH_TOKEN'),
+                  access_token_secret=os.getenv('OAUTH_SEC'))
 
 # Create your views here.
 #Author: Pooja Patil

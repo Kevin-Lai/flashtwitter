@@ -40,7 +40,7 @@ twitter_user = api.me()
 def homepage():
 	return render_template('home.html')
 
-@app.route("/create_tweet/", methods=['GET','POST'])
+@app.route("/twitter/create_tweet/", methods=['GET','POST'])
 def create_tweet():
 	form = CreateTweetForm()
 	completion_msg = ""
